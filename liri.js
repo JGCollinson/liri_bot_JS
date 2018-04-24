@@ -73,6 +73,19 @@ function myMovie(movie) {
   });
 }
 
+function random() {
+  fs.readFile("random.txt", "utf8", function(err, data) {
+    if (error) {
+      console.log(err);
+    }
+    var dataArr = data.split(",");
+    console.log(dataArr);
+    action = dataArr[0];
+    myVal = dataArr[1];
+    init();
+  });
+}
+
 function mySpotify(song) {
   console.log("here");
   if (song == null) {
@@ -90,15 +103,4 @@ function mySpotify(song) {
   });
 }
 
-function random() {
-  fs.readFile("random.txt", "utf8", function(error, data) {
-    if (error) {
-      console.log(error);
-    }
-    var dataArr = data.split(",");
-    console.log(dataArr);
-    action = dataArr[0];
-    myVal = dataArr[1];
-    runApp();
-  });
-}
+
